@@ -1,0 +1,10 @@
+* AMPP Error
+
+- Apache2 启动 Hostname 错误
+
+#+BEGIN_SRC 
+apache2: Could not reliably determine the server's fully qualified domain name, using ::1. Set the 'ServerName' directive globally to suppress this message.
+#+END_SRC
+
+编辑/etc/apache2/apache2.conf 文件,加入 ServerName localhost.
+

@@ -1,0 +1,111 @@
+* [[file:index.org][Index]]
+
+* Mew
+** What is Mew?
+
+Emacs 下功能强大的邮件管理器.
+
+- Mew 官方站点 [[http://www.mew.org/en/]]
+
+** 配置文件
+
+*** init-mew.el
+
+#+BEGIN_SRC
+;; venmos .emacs.d/elisp/init-mew.el
+;; http://venmos.com
+;; me[at]venmos.com
+
+(autoload 'mew "mew" nil t)
+(autoload 'mew-send "mew" nil t)
+(setq mew-fcc "+outbox")
+
+;; provide
+(provide 'init-mew)
+;;; init-mew.el ends here
+#+END_SRC
+
+*** .mew.el
+
+#+BEGIN_SRC
+(setq mew-name "venmos")
+(setq mew-from "venmos@google.com")
+(setq mew-mail-path "~/.emacs.d/email")
+(setq mew-conf-path mew-mail-path)
+(setq mew-addrbook-file "~/.emacs.d/mew.addrbook")
+(setq mew-prog-ssl "/usr/local/bin/stunnel")
+(setq mew-ssl-verify-level 0)
+;; GPG
+(setq mew-prog-pgp "gpg")
+(setq mew-prog-gpg "gpg-emacs")
+;; IMAP for Gmail
+(setq mew-use-cached-passwd t)
+(setq mew-use-master-passwd t)
+(setq mew-proto "%")
+(setq mew-imap-server "imap.gmail.com")
+(setq mew-imap-user "venmos@google.com")
+(setq mew-imap-auth  t)
+(setq mew-imap-ssl t)
+(setq mew-imap-ssl-port "993")
+(setq mew-smtp-auth t)
+(setq mew-smtp-ssl t)
+(setq mew-smtp-ssl-port "465")
+(setq mew-smtp-user "venmos@google.com")
+(setq mew-smtp-server "smtp.gmail.com")
+(setq mew-fcc "%Sent") ; 
+(setq mew-imap-trash-folder "%[Gmail]/已删除邮件")
+(setq mew-use-cached-passwd t)
+(setq mew-ssl-verify-level 0)
+;; Code
+(setq mew-charset-m17n "utf-8")
+(setq mew-internal-utf-8p)
+#+END_SRC
+
+** 快捷键
+
+- i 
+接收新邮件
+- w	
+撰写新邮件
+- a	
+回复邮件，不带引用
+- A	
+回复邮件，带引用
+- f	
+转发邮件
+- r	
+重新发送邮件
+- Space
+C	阅读邮件
+- T
+显示图片
+- \
+查看源代码
+- =
+查看头信息
+- y	
+保存文件（可以保存信件全文、信件正文、附件）
+- C-c C-l	
+转换当前邮件的编码格式
+- C-c C-a	
+加入地址薄
+- C-u C-c 
+C-a	比 C-c C-a 多加入昵称和名字
+- C-c C-q	
+不保存退出
+- C-c C-a	
+准备插入附件
+- mew-attach-copy	
+用复制方式加入附件
+- mew-attach-link	
+用链接方式加入附件
+- mew-attach-delet
+e	删除附件
+- C-c C-c	
+发送邮件
+- C-c RET	
+保存邮件到发送队列
+- C	
+如果设置了多个邮箱，用 C 命令切换
+- Q	
+退出 Mew

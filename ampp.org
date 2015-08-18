@@ -1,0 +1,29 @@
+* [[file:index.org][Index]]
+
+* What is AMPP ?
+
+AMPP = Apache2 + MySQL + PHP + PhpMyAdmin
+
+** What is [[https://www.apache.org/][Apache]] ?
+
+Apache HTTP Server(简称 Apache)是 Apache 软件基金会的一个开放源代码的网页服务器,可以在大多数电脑操作系统中运行,由于其跨平台和安全性被广泛使用,是最流行的 Web 服务器端软件之一.
+
+** What is [[https://www.mysql.com/][MySQL]] ?
+
+MySQL 是一个开放源代码的关系数据库管理系统,原开发者为瑞典的 MySQL AB 公司.MySQL 在过去由于性能高,成本低,可靠性好,已经成为最流行的开源数据库,因此被广泛地应用在 Internet 上的中小型网站中.
+
+** What is [[http://www.php.net/][PHP]] ?
+
+PHP(全称:PHP Hypertext Preprocessor,及 PHP:超文本预处理器)是一种开源的通用计算机脚本语言,尤其适用于网络开发并可嵌入 HTML 中使用.PHP 的语法借鉴吸收了 C 语言,Java 和 Perl 等流行计算机语言的特点,易于一般程序员学习.
+
+** What is [[http://www.phpmyadmin.net/][PhpMyAdmin]] ?
+
+PhpMyAdmin 是一个以 PHP 为基础,以 Web-Base 方式架构在网站主机上的 MySQL 的数据库管理工具,让管理者可用 Web 接口管理 MySQL 数据库.借由此 Web 接口可以成为一个简易方式输入繁杂 SQL 语法的较佳途径,尤其要处理大量资料的汇入及汇出更为方便.
+
+** Use
+
+- [[file:debian-install-ampp.org][Install AMPP to Debian]]
+- [[file:osx-install-ampp.org][Install AMPP to OS X]]
+- [[file:ampp-error.org][AMPP Error]]
+- [[file:ampp-https.org][Enable HTTPS]]
+

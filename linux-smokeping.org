@@ -1,0 +1,99 @@
+* [[file:index.org][Index]]
+
+* Smokeping
+** What is Smokeping
+
+Smokeping 是由 Perl 语言编写的用于监控网络性能的程序。包括：HTTP，SSH，DNS，Ping 等监控方式。
+
+Smokeping 官方主页：[[http://oss.oetiker.ch/smokeping/]]
+
+** Install Smokeping to Raspberry Pi
+
+- 首先更新系统软件包为最新
+
+#+BEGIN_SRC
+apt-get update
+apt-get upgrade
+#+END_SRC
+
+- 然后安装 Apache2
+
+#+BEGIN_SRC
+apt-get install apache2
+#+END_SRC
+
+- 最后安装 SendMail 与 Smokeping
+
+#+BEGIN_SRC 
+apt-get install senmail
+apt-get install smokeping
+#+END_SRC
+
+*** Configuration Smokeping
+
+- Smokeping 配置文件目录
+
+#+BEGIN_SRC
+/etc/smokeping/
+#+END_SRC
+ 
+- 添加监控服务器
+
+#+BEGIN_SRC
+edit /etc/smokeping/config.d/
+#+END_SRC
+
+- 示例配置 Shadowsocks.com
+
+#+BEGIN_SRC
+*** Targets ***
+
+probe = FPing
+
+menu = menu
+title = Website Title
+
++ Remote
+
+menu = Remote
+title = Remote Server
+
+++ JP01
+
+menu = JP01
+title = vip-jp01-2.ssv4.net	 
+host = vip-jp01-2.ssv4.net	 
+
+++ JP02
+
+menu = JP02
+title = vip-jp02-2.ssv4.net
+host = vip-jp02-2.ssv4.net
+
+++ JP03
+
+menu = JP03
+title = vip-jp03-2.ssv4.net
+host = vip-jp03-2.ssv4.net
+
+++ JP04
+
+menu = JP04
+title = vip-jp04-2.ssv4.net
+host = vip-jp04-2.ssv4.net
+
+++ JP05
+
+menu = JP05
+title = vip-jp05-2.ssv4.net
+host = vip-jp05-2.ssv4.net
+
+++ JP06
+
+menu = JP06
+title = vip-jp06-2.ssv4.net
+host = vip-jp06-2.ssv4.net
+#+END_SRC
+
+- 默认访问路径
+[[http://localhost/cgi-bin/smokeping.cgi]]

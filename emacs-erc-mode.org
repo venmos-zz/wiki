@@ -1,0 +1,96 @@
+* [[file:index.org][Index]]
+
+* ERC
+
+** What is ERC ?
+
+ERC 是一个能够使 Emacs 编辑器成为一个 Internet Relay Chat (IRC) 客户端的 Emacs Lisp 包。2007 年 ERC 成为了官方的 GNU 项目。 它被包含在 GNU Emacs release 22.1 中，成为 GNU Emacs 的一部分。
+
+*** ERC Hot Key
+- C-c C-n
+列出频道里的用户
+- C-c C-b
+切换频道
+- C-c C-j
+加入频道
+- C-c C-p
+退出频道
+
+** What is IRC ?
+
+IRC（Internet Relay Chat 的缩写，“因特网中继聊天”）是一种通过网络的即时聊天方式。其主要用于群体聊天，但同样也可以用于个人对个人的聊天。
+
+IRC 是一种公开的协议，采用 TCP 和 SSL 协议。一个 IRC 服务器可以连接其他的 IRC 服务器以扩展为一个 IRC 网络。IRC 用户通过客户端软件和服务器相连。大多数的 IRC 服务器不需要客户注册登录，虽然在连接前必须设定好昵称（nickname），但客户端一般都会自动分给一个。
+
+*** 常用命令
+- /nick
+更改暱称
+- /names 
+/names [聊天室] 查看当前所有或某个聊天室的在线用户
+- /whois 
+/whois name 查询用户信息
+- /who 
+/who [IP] 常看某 IP 登錄的所有用戶
+/who [聊天室] 显示聊天室的人
+/who * 显示参加当前频道的人
+- /join
+/join [聊天室] 加入这个聊天室，如果聊天室不存在则建立
+- /part
+/part [Messenge] 退出房间，并留下原因
+- /leave
+/leave [聊天室] 离开聊天室
+- /quit 
+/quit [Messenge] 退出 IRC，并留下原因
+- /away 
+/away [Messenge] 暂离，并留下原因
+- /invite 
+/invite [ID] 邀请用户加入频道
+- /me 
+/me jumps 要作的動作向当前聊天室中发送一个动作 
+- /msg 
+/msg [ID] 向某人说话
+- /query 
+/query [ID] 私聊
+- /privmsg
+/privmsg [ID]悄悄话
+- /list
+/list 查看服务器上所有的房间
+/list ubuntu-cn 列出 ubuntu-cn 这个房间
+/list -MIN 5 -MAX 10 查看人數大于 5 小于 10 的房間
+/list *abc* 显示所有带有 abc 字串符的房间
+- /help
+显示所有 IRC 命令
+- /knock
+要求进入私人聊天室
+- /invite
+邀请用户进入私人聊天室
+- /ignore
+/ignore [ID] 将用户加入黑名单
+
+*** 管理命令
+- /topic
+/topic [房间名] 更改房间主题
+- /kick
+/kick [ID] 把用户提出聊天室，并附带原因
+- /mode +(-)i
+锁住聊天室
+- /mode +(-)o
+设定管理员权限
+
+** What is Bitlbee ?
+
+BitlBee 是一个 IRC 网关，它可以被理解为一种 IRC 服务器或是 IM（含 OSCAR、MSN、Yahoo!、Jabber）客户端。
+
+通过两种方式将 IM 信号接收为 IRC 信号，将 IRC 消息发送为 IM 消息，以达到使用 IRC 客户端聊 IM 的目的。一种方式是使用 BitlBee 软件在本地架设一台 IRC 服务器，令其登录指定 IM 服务器；另一种方式则是类似于 Meebo、Nimbuzz 等在线服务，在公用 BitlBee 服务器上注册一个帐号，直接联机使用该服务。
+
+BitlBee 特别适用于 IRC 软件（如 ERC、Opera、Mibbit）的狂热用户。
+
+*** Bitlbee Command
+- acc add
+添加账户
+- acc 0 del
+删除账户 0
+- acc list
+列出所有账户
+- acc 0 set command
+进行账户 0 的设置

@@ -1,0 +1,74 @@
+* [[file:index.org][Index]]
+
+* Venom's Wiki
+
+** About this wiki
+
+*** What is this Wiki?
+
++你好,我是 Venom.欢迎来到我的 Wiki,它构建在 Bootstrap 之上,由纯 HTML 与少量 Javascript 组成.+
+
++这个 Wiki 里记录着我的学习笔记,其中的笔记都是从网络各处摘抄学习后又经过我亲自试验可行后才记录下来的.+
+
++感谢 Richard Stallman ,使用 GNU Emacs 编写纯 HTML Wiki 也不比使用其他的现成 Wiki 系统复杂到哪里去.也感谢 Bootstrap,可以不用让我为各种界面配置而劳神伤身,将全部精力集中在纂写文字本身.+
+
+Venom's Wiki 已经转移到自建[[https://gitlab.com/users/sign_in/][ GitLab]] 上,以前的老备份被存放在这个 [[https://7ol.org.cn/venmos/Old-Wiki][仓库]] 之中. 
+
+*** Who is Venom?
+
+- [[file:aboutme.org][About Me]]
+
+** Note
+
+- [[file:org-note.org][Note]]
+
+** GNU Emacs
+
+1984 年,斯托曼开始致力于开发 GNU Emacs,这将是一个自由软件,以代替专有的 Gosling Emacs.最初 GNU Emacs 是在 Gosling Emacs 的基础上开发的,不过斯托曼后来用一个真正的 Lisp 解释器代替了原来的 Mocklisp 解释器,由于 Lisp 解释器在此软件中的核心地位,这意味着实际上重写了几乎全部代码. - [[http://zh.wikipedia.org/zh-cn/Emacs][来自 WikiPedia]]
+
+- [[https://www.gnu.org/software/emacs/][GNU Emacs]]
+GNU Emacs 的官方网站.
+- [[https://7ol.org.cn/venmos/emacs-d][Venom's Emacs.d]]
+Venom 的 Emacs 配置.
+
+*** About Emacs
+- [[file:emacs-w3m.org][Emacs-W3M]]
+W3M 是由日本东北大学的教授伊藤彰則等人发明的开放源代码的文字式网页游览器.W3M 支持表格，框架，SSL，颜色，图片等显示.
+Emacs-W3M 可以让你在 Emacs 之中调用外部的 W3M 程序游览网页并在 Emacs 缓冲区中打印出来.
+- [[file:emacs-mew.org][Mew]]
+Emacs 下功能强大的邮件管理器.
+- [[file:emacs-erc-mode.org][Erc]]
+Emacs 默认内置的 IRC 聊天程序.
+- [[file:emacs-html-mode.org][HTML-Mode]]
+Emacs 默认为我们提供了一个编写 HTML 文件的模式 HTML-Mode.它拥有十分多的快捷键设置,让我们编写 HTML 文档更加快速,方便.
+- [[file:emacs-org-mode.org][Org-Mode]]
+Org 模式(Org-mode)是文本编辑软件 Emacs 的一种支持内容分级显示的编辑模式.这种模式支持写 To-Do 列表,日志管理,做笔记,做工程计划或者写网页.
+- [[file:emacs-magit.org][Magit]]
+Magit 可以在 Emacs 之中调用 Git 命令，并对大多数 Git 命令进行了简化包装，以便于使用.
+- [[file:emacs-twittering-mode.org][Twittering-Mode]]
+一个封装的在 Emacs 下使用的 Twitter 客户端.
+- [[file:emacs-shell.org][Shell and Tramp]]
+
+** AMPP
+
+AMPP = Apache2 + MySQL + PHP + PhpMyAdmin
+
+- [[file:ampp.org][Install AMPP]]
+- [[file:ampp-webdav.org][WebDAV]]
+
+** GNU Linux/OS X
+
+*** Search
+
+- [[file:linux-locate.org][Locate]]
+
+*** Networking
+
+- [[file:linux-ssh.org][SSH]]
+- [[file:linux-pdnsd.org][pDNSd]]
+- [[file:linux-smokeping.org][Smokeping]]
+
+** Code
+
+- [[file:code-shbrushlisp.org][Shbrushlisp.js ]]
+SyntaxHighlighter 3.x 版本的 Lisp 高亮扩展.

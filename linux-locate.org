@@ -1,0 +1,20 @@
+* [[file:index.org][Index]]
+
+* Locate
+
+** OS X
+
+- 开机自启动服务
+#+BEGIN_SRC
+$sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+#+END_SRC
+
+- 手动更新数据库
+#+BEGIN_SRC 
+$sudo /usr/libexec/locate.updatedb
+#+END_SRC
+
+- 搜索文件
+#+BEGIN_SRC
+$locate file
+#+END_SRC

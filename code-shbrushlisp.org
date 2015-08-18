@@ -1,0 +1,39 @@
+* [[file:index.org][Index]]
+
+* shBrushLisp.js
+
+SyntaxHighlighter 3.x 版本的 Lisp 高亮扩展.
+
+Gist: [[https://gist.github.com/venmos/6143311]]
+
+放入 /syntaxhighlighter/scripts/ 目录中,使用时需在 Head 标签中引用:
+
+#+BEGIN_SRC js
+<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.js"></script>
+#+END_SRC
+
+主体文件:
+
+#+BEGIN_SRC js
+SyntaxHighlighter.brushes.Lisp = function(){
+
+        var funcs           = 'lambda list progn mapcar car cdr reverse member append format';
+        var keywords    = 'let while unless cond if eq t nil defvar dotimes setf listp numberp not equal';
+        var macros      = 'loop when dolist dotimes defun';
+        var operators = '> < + - = * / %';
+
+this.regexList = [
+        { regex: SyntaxHighlighter.regexLib.doubleQuotedString, css: 'string' },
+        { regex: new RegExp('&\\w+;', 'g'), css: 'plain' },
+        { regex: new RegExp(';.*', 'g'), css: 'comments' },
+        { regex: new RegExp("'(\\w|-)+", 'g'), css: 'variable' },
+        { regex: new RegExp(this.getKeywords(keywords), 'gm'), css: 'keyword' },
+        { regex: new RegExp(this.getKeywords(macros), 'gm'), css: 'keyword' },
+        { regex: new RegExp(this.getKeywords(funcs), 'gm'), css: 'functions' },
+   ];
+
+}
+
+SyntaxHighlighter.brushes.Lisp.prototype = new SyntaxHighlighter.Highlighter();
+SyntaxHighlighter.brushes.Lisp.aliases   = ['lisp'];
+#+END_SRC

@@ -1,0 +1,32 @@
+[[file:index.org][* Index]]
+
+* Magit
+** What is Magit?
+Magit 可以在 Emacs 之中调用 Git 命令，并对大多数 Git 命令进行了简化包装，以便于使用.
+
+- Magit 官方仓库 [[https://github.com/magit/magit]]
+
+** Command
+
+- magit-log
+查看 Git 日志
+- magit-log-all
+查看所有 Git 日志
+- magit-init
+初始化目录
+- magit-status
+打开查看项目目录 Git 状态
+- magit-diff
+比对文件
+
+** Shortcut keys
+
+*** magit-status
+- s
+添加新文件或修改过的文件
+- c
+给信文件或修改过的文件添加说明
+- P
+Push
+- F
+Pull

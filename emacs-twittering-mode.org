@@ -1,0 +1,72 @@
+* [[file:index.org][Index]]
+
+* Twittering-Mode
+
+** What is Twittering-Mode?
+
+一个封装的在 Emacs 下使用的 Twitter 客户端.
+
+- Twittering-Mode 官方仓库 [[https://github.com/hayamiz/twittering-mode]]
+
+** Shortcut Key
+
+*** Move the cursor.
+-  + 0: Go to the beginning of the line.
+-  + ^: Go to the beginning of the text on the line.
+-  + $: Go to the end of the line.
+-  + G: Go to the bottom tweet.
+-  + H: Go to the top tweet.
+-  + h: Move the cursor left.
+-  + j: Go to the next tweet.
+-  + k: Go to the previous tweet.
+-  + l: Move the cursor right.
+-  + n: Go to the next tweet by the author of the pointed tweet.
+-  + p: Go to the previous tweet by the author of the pointed tweet.
+-  + TAB: Go to the next thing (link, user name, URL, etc.).
+-  + M-TAB or <backtab>: Go to the previous thing (link, user name, URL, etc.).
+-  + C-v or SPC: Scroll the buffer upward.
+-  + M-v or <backspace>: Scroll the buffer downward.
+
+*** Switch a timeline.
+-  + L: Open a list timeline interactively.
+-  + V: Open a timeline by timeline-spec.
+-  + b: Switch to the previous timeline.
+-  + f: Switch to the next timeline.
+-  + C-cC-d: Open the direct messages timeline. This is equivalent to V with :direct_messages.
+-  + v: Open the home timeline of the pointed user.
+-  + C-cC-f: Open the friend timeline. This is equivalent to V with :friends.
+-  + C-cC-q: Open a search timeline. This is equivalent to V with :search/QUERY/.
+-  + C-cC-r: Open the replies timeline. This is equivalent to V with :replies.
+-  + C-cC-u: Open the current user timeline. This is equivalent to V with USERNAME, where USERNAME is your screen-name.
+-  + q: Close the current buffer.
+
+*** Update/clear the timeline.
+-  + g: Update the current timeline.
+-  + C-cC-e: Erase tweets of the current buffer from memory.
+
+*** Display replied tweets.
+-  + r: Display replied tweets or hide them.
+-  + R: Display replied tweets, retrieve the replied tweet or hide them.
+
+*** Post a tweet.
+-  + u or C-cC-s: Post a tweet.
+-  + RET: Post a reply to the pointed tweet or open the pointed URL with browse-url.
+-  + C-c RET: Post an organic retweet. This is only a tweet citing the pointed tweet and not an official/native retweet.
+-  + C-uC-c RET: Post an official/native retweet.
+-  + d: Send a direct message.
+-  + C-cC-l: Post a joke message.
+
+*** Delete a tweet.
+-  + C-cC-w: Delete the pointed tweet.
+
+*** View more info.
+-  + U: Push the URL of the pointed link or tweet onto the kill ring.
+-  + C-cC-v: Open the profile of the pointed user with browse-url.
+-  + <mouse-1>: Open the pointed URL with browse-url.
+
+*** Change the mode of twittering-mode.
+-  + a: Toggle the state of the buffer between active/inactive. Twittering-mode does not update an inactive buffer.
+-  + i: Toggle the state of the buffer between with or without icon images.
+-  + t or C-cC-p: Toggle between with or without a proxy server.
+-  + C-cC-t: Set the current hashtag.
+

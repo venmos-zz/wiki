@@ -1,0 +1,103 @@
+* Install the AMPP to MacOS X
+
+** 在 MacOS X 系统下安装 AMPP 套件
+
+- 开启 Apache2
+
+#+BEGIN_SRC 
+$sudo apachectl start
+#+END_SRC
+
+- 查看 Apache2 版本号
+
+#+BEGIN_SRC 
+$sudo apachectl -v
+#+END_SRC
+
+- 开启 PHP
+
+#+BEGIN_SRC 
+$sudo vim /etc/apache2/httpd.conf
+/--取消 #LoadModule php5_module libexec/apache2/libphp5.so 的注释--/
+$sudo cp /etc/php.ini.default /etc/php.ini
+$sudo apachectl restart
+#+END_SRC
+
+- 安装 MySQL
+
+1. 前往 [[http://dev.mysql.com/downloads/mysql/][MySQL 网站]] 下载 MySQL;
+2. 运行安装 mysql-x.x.xx-osx-xx.x-x86_64.pkg;
+3. 在 bash 配置中加入 mysql 与 mysqladmin 的别名;
+
+#+BEGIN_SRC 
+$sudo vim /etc/bashrc
+/--加入以下--/
+#mysql
+alias mysql='/usr/local/mysql/bin/mysql'
+alias mysqladmin='/usr/local/mysql/bin/mysqladmin'
+#+END_SRC
+
+- 如果使用 PHP 连接 MySQL 报错，需更改 mysql.sock 路径;
+
+#+BEGIN_SRC 
+$sudo vim /etc/php.ini
+/--修改 mysql.default_scoket 为--/
+mysql.default_socket = /tmp/mysql.sock
+#+END_SRC
+
+- 安装 PhpMyAdmin
+1. 前往 PhpMyAdmin 网站下载 PhpMyAdmin;
+2. 解压缩 phpMyAdmin-x.xx-all.languages.tar.bz2;
+
+#+BEGIN_SRC 
+/--移动 phpMyAdmin 到你的 HTTP 目录--/
+$sudo mv ~/Downloads/phpMyAdmin-x.xx-all.languages ~/Sites/phpmyadmin
+/--开启 PhpMyAdmin 的配置文件--/
+sudo mv ~/Sites/phpmyadmin/config.sample.inc.php ~/Sites/phpmyadmin/config.inc.php
+#+END_SRC
+
+- 编辑 PhpMyAdmin 配置文件;
+
+#+BEGIN_SRC 
+$sudo vim ~/Sites/phpmyadmin/config.inc.php
+/--修改以下内容--/
+$cfg['blowfish_secret'] = ''; /--用于 Cookie 加密，任意长度字串符--/
+/--修改 MySQL 服务器地址--/
+$cfg['Servers'][$i]['host'] = '127.0.0.1';
+/--如需无密码访问 MySQL，需修改以下设置--/
+$cfg['Server'][$i]['AllowNoPassword'] = true;
+#+END_SRC
+
+- 建立 PhpMyAdmin 数据库并导入/etc/phpmyadmin/scripts/create_tables.sql 数据库;
+
+** 安装 MCrypt 扩展
+What is MCrypt？MCrypt 是一套功能强大的加密算法库，附带 22 种加密算法;
+
+- 前往 [[http://sourceforge.net/projects/mcrypt/files/Libmcrypt/][MCrypt 网站]] 下载 libmcrypt-x.x.x.tar.bz2;
+
+#+BEGIN_SRC 
+/--安装 MCrypt--/
+$cd ~/Downloads/libmcrypt-x.x.x
+$./configure --disable-posix-threads --enable-static
+$make
+$sudo make installs
+#+END_SRC
+
+- 前往下载 [[http://museum.php.net/php5/php-5.3.6.tar.bz2][PHP 源代码]];
+
+#+BEGIN_SRC 
+$cd ~/Downloads/php-5.3.6/ext/mcrypt
+$phpize
+$./configure
+$make
+$cd modules
+$sudo cp mcrypt.so /usr/lib/php/extensions/no-debug-non-zts-20090626/
+#+END_SRC
+
+- 编辑 php.ini,加入 MCrypt 扩展;
+
+#+BEGIN_SRC 
+$sudo vim /etc/php.ini
+/--在 php.ini 中加入以下代码--/
+extension=/usr/lib/php/extensions/no-debug-non-zts-20090626/mcrypt.so
+#+END_SRC

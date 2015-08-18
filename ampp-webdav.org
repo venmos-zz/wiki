@@ -1,0 +1,67 @@
+* [[file:index.org][Index]]
+
+* What is WebDAV?
+
+WebDAV(Web-based Distributed Authoring and Versioning)一种基于 HTTP 1.1 协议的通信协议.它扩展了 HTTP 1.1,在 GET,POST,HEAD 等几个 HTTP 标准方法以外添加了一些新的方法,使应用程序可直接对 Web Server 直接读写,并支持写文件锁定(Locking)及解锁(Unlock),还可以支持文件的版本控制.
+
+** Install the WebDAV to Apache2
+
+- Install Apache2 PHP5
+
+#+BEGIN_SRC
+sudo apt-get update
+sudo apt-get install apache2
+sudo apt-get install php5 libapache2-mod-php5
+#+END_SRC
+
+- Enable WebDAV Mod
+
+#+BEGIN_SRC 
+sudo a2enmod dav_fs
+sudo a2enmod dav
+#+END_SRC
+
+- Enable SSL Mod
+
+#+BEGIN_SRC  
+sudo a2enmod ssl 
+#+END_SRC
+
+- 创建 WebDAV 目录
+
+#+BEGIN_SRC 
+sudo mkdir /home/users/webdav
+sudo chown www-data.www-data /home/users/webdav
+#+END_SRC
+
+- 创建 Apache2 账户密码数据文件
+
+#+BEGIN_SRC 
+sudo htpasswd -c /home/htpasswd.dav test
+sudo chmod 640 /home/htpasswd.dav
+#+END_SRC 
+
+- Apache2 SSL 配置文件
+
+#+BEGIN_SRC 
+<VirtualHost *:443>
+ SSLEngine On
+ SSLCertificateFile ssl.crt
+ SSLCertificateKeyFile ssl.key
+ DocumentRoot /home/users/webdav
+ <Directory /home/users/webdav/>
+      Options Indexes MultiViews
+      AllowOverride None
+      Order allow,deny
+      allow from all
+ </Directory>
+ Alias /webdav /home/users/webdav
+ <Location /webdav>
+      DAV On
+      AuthType Basic
+      AuthName "webdav"
+      AuthUserFile /home/passwd.dav
+      Require valid-user
+ </Location>
+</VirtualHost>
+#+END_SRC

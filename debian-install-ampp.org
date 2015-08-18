@@ -1,0 +1,48 @@
+* Install the AMPP to Debian
+
+** 在 Debian GNU/Linux 下安装 AMPP 套件
+
+- Install Apache2
+
+#+BEGIN_SRC 
+$sudo apt-get install apache2
+#+END_SRC
+
+- Install MySQL
+
+#+BEGIN_SRC  
+$sudo apt-get install mysql-server
+#+END_SRC
+
+- Install PHP5
+
+#+BEGIN_SRC  
+$sudo apt-get install php5
+#+END_SRC
+
+- Install Module
+
+#+BEGIN_SRC  
+$sudo apt-get install libapache2-mod-auth-mysql
+$sudo apt-get install php5-mysql
+$sudo apt-get install php5-gd
+$sudo /etc/init.d/apache2 restart
+#+END_SRC
+
+- Install PhpMyAdmin
+
+#+BEGIN_SRC 
+$sudo apt-get install phpmyadmin
+#+END_SRC
+
+- 附加功能尚未激活
+
+如果进入 PhpMyAdmin 发现底部显示"链接表的附加功能尚未激活.要查出原因,请点击此处."点击进入后发现是"cfg['Servers'][i]['tracking']...error",那么可以按以下办法解决:
+首先检查 phpmyadmin 数据库中是否有'pma_tracking'表,如果没有可从 phpMyAdmin/scripts 目录中导入名为 create_tables.sql 的数据库.然后检查 PhpMyAdmin 配置文件:
+
+#+BEGIN_SRC 
+$vim /etc/phpmyadmin/config.inc.php /--打开 PhpMyAdmin 配置文件--/
+/Advanced phpMyAdmin features /--搜索并跳转到这一项--/
+/--检查是否有$cfg['Servers'][$i]['tracking'] = 'pma_tracking';--/
+/--如果没有则需要在/* Advanced phpMyAdmin features */下添加这一项.--/
+#+END_SRC

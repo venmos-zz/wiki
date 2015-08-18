@@ -1,0 +1,83 @@
+* [[file:index.org][Index]]
+
+* SSH
+
+** What is SSH?
+SSH 为 Secure Shell 的缩写，由 IETF 的网络工作小组（Network Working Group）所制定；SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。
+
+** 配置文件路径
+
+- 客户端
+~/.ssh/config
+- 服务器端
+/eptc/ssh/sshd_config
+
+** 客户端配置文件
+
+-  ServerAliveInterval 30
+.ssh/config => 防止超时时间
+- Host
+指定主机名
+- HostName
+指定主机地址
+- User
+指定登陆用户
+- Port
+指定端口
+- Compression yes
+启用压缩
+- ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+ControlPersist 10h
+SSH 缓存
+
+** 服务器端配置文件
+
+- ClientAliveInterval 30
+每隔 30 秒给客户端发送信号
+- ClientAliveCountMax 6
+超过 6 次客户端无信号，断开连接
+- 禁用密码登陆 Only 证书
+
+#+BEGIN_SRC
+vi /etc/ssh/sshd_config
+
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+PasswordAuthentication no
+
+service sshd restart
+#+END_SRC
+
+** Command
+
+- X11
+ssh -p 2323 -C -X -Y someone@example.com
+远程 X11 映射
+- MySQL
+ssh -L localhost:3306:localhost:3306 -Nf someone@example.com
+MySQL 端口镜像到本地
+- 反向端口映射
+ssh -R :3389:localhost:3389 -Nf someone@example.com
+你的机器在内网，外面访问不了。你回家后还想访问本机的 3389 端口，继续干活。你有一台外网的机器，上面有 sshd，可以通过：
+这样你就可以在另外地方通过访问 example.com:3389，而达到访问本机 3389 的目的。
+- 脚本远程命令
+ssh 可被脚本用于执行远程命令，使 admin 任务脚本化，自动化。 例如：
+ssh someone@example.com uname
+相当于登陆到 example.com 机器上，执行 uname 命令，结果输出到控制台，退出
+- 跳板链接
+host-B$ ssh -CfNg -L 6300:127.0.0.1:80 userc@C
+host-B$ ssh -CfNg -R 80:127.0.0.1:6300 usera@A
+访问 A 的 80 端口等同于访问 C 的 80 端口
+- Socks Proxy
+ssh -qTfnN -D 7070 username@localhost.com
+ssh -qTfnN -D 9050 venmos@v20.sshchina.com
+
+* SSHFS
+
+** What is SSHFS?
+
+使用 SSHFS 可以轻易地将远程服务器上的目录通过 SSH 挂载到本地,然后像访问本地文件一样的去访问远程服务器文件.
+
+- sshfs users@expamy:/url/folder folder 
+挂载远程 Folder 目录到本地 Folder

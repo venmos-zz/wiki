@@ -1,0 +1,32 @@
+* [[file:index.org][Index]]
+
+* Who is Venom?
+
+** About Me
+
+[[http://venmos.com/assets/BB.jpg]]
+
+Maccon, Emacscon, Lolicon, ACG. False geek, Looks like a quiet guy. Love open source, Loves photography and outdoor sports. Favorite programming language is Ruby and Lisp.
+
+** Website
+
+- Index [[http://venmos.com][venmos.com]]
+- Blog [[http://blog.venmos.com][blog.venmos.com]]
+- Wiki [[https://github.com/venmos/wiki/wiki/index][github.com/venmos/wiki]]
+
+** Git
+
+- Github [[http://github.com/venmos][github.com/venmos]]
+- Gitcafe [[http://gitcafe.com/venmos][gitcafe.com/venmos]]
+
+** Social Networking
+
+- Twitter [[https://twitter.com/venmos][@venmos]]
+- Weibo [[http://weibo.com/venmos][@venmos]]
+- Email [[mailto:venmos@fuck.gfw.es]]
+
+** Journal
+
+- My blog has been deleted, now a new blog in [[http://blog.venmos.com][Segmentfault]].
+ 
+ 

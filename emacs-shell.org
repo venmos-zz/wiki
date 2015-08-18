@@ -1,0 +1,17 @@
+* [[file:index.org][Index]]
+
+* Ansi-Term
+
+- emacs-mac-port 4m
+#+begin_src shell
+tic -o ~/.terminfo /usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.9/share/emacs/24.5/etc/e/eterm-color.ti
+#+end_src
+
+* Tramp
+
+- /ssh:root@localhost:/file
+- /root@localhost:/file
+通过 SSH 打开远程服务器文件
+- /ssh:root@localhost|sudo@localhost:/file
+- /root@localhost|sudo@localhost:/file
+通过 SSH 用 Sudo 账户以 Root 权限打开远程文件

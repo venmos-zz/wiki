@@ -1,0 +1,114 @@
+* [[file:index.org][Index]]
+
+* Emacs-W3M
+
+** What is W3M?
+
+W3M 是由日本东北大学的教授伊藤彰則等人发明的开放源代码的文字式网页游览器.W3M 支持表格，框架，SSL，颜色，图片等显示。
+
+[W3M]这个名字来源于[WWW wo Miru]，日语的[看 WWW]之意.
+
+** What is Emacs-W3m?
+
+Emacs-W3M 可以让你在 Emacs 之中调用外部的 W3M 程序游览网页并在 Emacs 缓冲区中打印出来.
+
+- Emacs-W3M 官方站点 [[http://emacs-w3m.namazu.org/]]
+
+** Install
+
+Emacs-W3M 需要 W3M 程序，可以在 GNU/Linux 与 OS X 上安装.
+
+#+begin_src shell
+Debian Linux
+$sudo apt-get install w3m
+#+end_src
+
+OS X 中可以使用[[http://brew.sh/][ Homebrew]] 安装.
+
+#+begin_src shell
+OS X
+$brew install w3m
+#+end_src
+
+
+** Shortcut keys
+
+- LF
+开启数据选择连接
+- B
+返回前一个页面
+- M
+使用系统默认游览器打开链接
+- Shift-RET
+新标签打开
+- R
+刷新
+- g
+转到
+- G
+新标签中转到
+- U
+转到
+- H
+ 主页
+- s
+历史
+- M
+用外部浏览器查看当前页面
+- d
+下载
+- \
+查看源代码
+- =
+查看头信息
+- u
+复制链接地址到剪切板
+- c
+复制本页地址到剪切板
+- E
+编辑本页
+- e
+编辑链接页
+- C-w
+删除当前页
+- C-c M-w
+删除其他页
+- C-c C-t
+复制当前页到新标签
+- v
+查看书签
+- a
+添加当前页面到书签
+- M-a
+添加链接到书签
+- M-i
+保存当前位置图片
+- T
+显示图片
+- M-[
+缩小当前图片
+- M-]
+放大当前图片
+- I
+用外部查看器显示当前图片
+- ]
+下一个表格
+- [
+上一个表格
+- }
+下一幅图
+- {
+上一幅图
+- B
+返回
+- N
+前进
+
+** Command
+
+- w3m
+启动 W3M
+- w3m-search
+使用 W3M 在 Google 中搜索
+- w3m-goto-url
+打开一个链接

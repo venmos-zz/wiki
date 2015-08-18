@@ -1,0 +1,52 @@
+* [[file:index.org][Index]]
+
+* HTML-Mode
+
+Emacs 默认为我们提供了一个编写 HTML 文件的模式 HTML-Mode.它拥有十分多的快捷键设置,让我们编写 HTML 文档更加快速,方便.
+
+** 快捷键
+
+- C-c C-f
+光标移动到上一个 HTML 标签
+
+- C-c C-b
+光标移动到下一个 HTML 标签
+
+- C-c /
+跳到该标签的开始/结束
+
+- C-c DEL
+删除标签
+
+- C-c 1~6
+插入标题 H1~H6
+
+- C-c Enter
+插入段落
+
+- C-c /
+自动闭合标签
+
+- C-c C-c h
+插入超级链接
+
+- C-c C-c n
+插入锚标
+
+- C-c C-c u
+插入无序列表
+
+- C-c C-c o
+插入有序列表
+
+- C-c C-c p
+插入标记
+
+- C-c C-c -
+插入水平线
+
+- C-c C-c i
+插入图像引用标记
+
+- C-c C-j
+插入换行符
