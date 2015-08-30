@@ -1,0 +1,26 @@
+* [[file:index.org][Index]]
+
+** Squid
+
+*** Squid Configure
+#+BEGIN_SRC 
+http_port 4128
+cache_peer 127.0.0.1 parent 1080 0 default no-delay no-query 
+cache_peer_access 127.0.0.1 allow all
+never_direct allow all
+maximum_object_size 128 MB
+cache_dir diskd /var/cache/squid 200000 16 256
+access_log /var/log/squid3/access.log
+#http_access allow all
+
+auth_param basic program /usr/lib/squid3/ncsa_auth /etc/squid3/squid.passwd
+auth_param basic children 5
+auth_param basic realm Squid proxy-caching web server
+auth_param basic credentialsttl 2 hours
+auth_param basic casesensitive off
+
+acl ncsa_users proxy_auth REQUIRED
+
+http_access deny !ncsa_users
+http_access allow ncsa_users
+#+END_SRC
